@@ -1,0 +1,30 @@
+name: Render & Deploy
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "*.yaml"
+
+permissions:
+  contents: write
+
+jobs:
+  render-cv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Render All
+        uses: sinaatalay/rendercv-pipeline@v1
+        with:
+          cv_file_path: Felipe-Carvalho-CV-pt.yaml Felipe-Carvalho-CV-en.yaml
+
+      - name: Commit of generated files
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f rendercv_output/
+          git commit -m "docs: render commit [skip ci]" || exit 0
+          git push

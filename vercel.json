@@ -1,0 +1,28 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/pt",
+      "destination": "/rendercv_output/Felipe-Carvalho-CV-pt/Felipe-Carvalho-CV-pt.html"
+    },
+    {
+      "source": "/en",
+      "destination": "/rendercv_output/Felipe-Carvalho-CV-en/Felipe-Carvalho-CV-en.html"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "(?i).*pt.*"
+        }
+      ],
+      "destination": "/rendercv_output/Felipe-Carvalho-CV-pt/Felipe-Carvalho-CV-pt.html"
+    },
+    {
+      "source": "/",
+      "destination": "/rendercv_output/Felipe-Carvalho-CV-en/Felipe-Carvalho-CV-en.html"
+    }
+  ]
+}
