@@ -1,14 +1,6 @@
 {
   "cleanUrls": true,
-  "rewrites": [
-    {
-      "source": "/pt",
-      "destination": "rendercv_output/Felipe-Carvalho-CV-pt/Felipe-Carvalho-CV-pt.html"
-    },
-    {
-      "source": "/en",
-      "destination": "rendercv_output/Felipe-Carvalho-CV-en/Felipe-Carvalho-CV-en.html"
-    },
+  "redirects": [
     {
       "source": "/",
       "has": [
@@ -18,11 +10,23 @@
           "value": "(?i).*pt.*"
         }
       ],
-      "destination": "rendercv_output/Felipe-Carvalho-CV-pt/Felipe-Carvalho-CV-pt.html"
+      "destination": "/pt",
+      "permanent": false
     },
     {
       "source": "/",
-      "destination": "rendercv_output/Felipe-Carvalho-CV-en/Felipe-Carvalho-CV-en.html"
+      "destination": "/en",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/pt",
+      "destination": "/rendercv_output/Felipe-Carvalho-CV-pt/Felipe_Carvalho_CV"
+    },
+    {
+      "source": "/en",
+      "destination": "/rendercv_output/Felipe-Carvalho-CV-en/Felipe_Carvalho_CV"
     }
   ]
 }
