@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Render All
-        uses: sinaatalay/rendercv-pipeline@v1
+        uses: sinaatalay/rendercv-pipeline@main
         with:
           cv_file_path: Felipe-Carvalho-CV-pt.yaml Felipe-Carvalho-CV-en.yaml
 
