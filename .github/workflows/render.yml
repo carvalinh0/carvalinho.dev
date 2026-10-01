@@ -33,7 +33,7 @@ jobs:
             if [ -f "$file" ]; then
               filename=$(basename "$file" .yaml)
               echo "Renderizando $file..."
-              rendercv render "$file" --output-folder-name "rendercv_output/$filename"
+              rendercv render "$file" --output-folder "rendercv_output/$filename"
             fi
           done
 
