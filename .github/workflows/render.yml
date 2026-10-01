@@ -17,10 +17,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Render All
-        uses: sinaatalay/rendercv-pipeline@main
+      - name: Configurar Python
+        uses: actions/setup-python@v5
         with:
-          cv_file_path: Felipe-Carvalho-CV-pt.yaml Felipe-Carvalho-CV-en.yaml
+          python-version: '3.12'
+
+      - name: Instalar RenderCV e Typst
+        run: |
+          python -m pip install --upgrade pip
+          pip install "rendercv[full]"
+
+      - name: Renderizar todos os arquivos YAML
+        run: |
+          for file in *.yaml; do
+            if [ -f "$file" ]; then
+              echo "Renderizando $file..."
+              rendercv render "$file"
+            fi
+          done
 
       - name: Commit of generated files
         run: |
